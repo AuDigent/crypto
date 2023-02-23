@@ -33,6 +33,8 @@ const (
 	Size384 = 48
 	// The hash size of BLAKE2b-256 in bytes.
 	Size256 = 32
+	// The hash size of BLAKE2b-128 in bytes.
+	Size128 = 16
 )
 
 var (
@@ -74,6 +76,15 @@ func Sum256(data []byte) [Size256]byte {
 	checkSum(&sum, Size256, data)
 	copy(sum256[:], sum[:Size256])
 	return sum256
+}
+
+// Sum128 returns the BLAKE2b-128 checksum of the data.
+func Sum128(data []byte) [Size128]byte {
+	var sum [Size]byte
+	var sum128 [Size128]byte
+	checkSum(&sum, Size128, data)
+	copy(sum128[:], sum[:Size128])
+	return sum128
 }
 
 // New512 returns a new hash.Hash computing the BLAKE2b-512 checksum. A non-nil

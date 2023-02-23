@@ -1,4 +1,4 @@
-module github.com/Audigent/crypto
+module github.com/AuDigent/crypto
 
 go 1.17
 
